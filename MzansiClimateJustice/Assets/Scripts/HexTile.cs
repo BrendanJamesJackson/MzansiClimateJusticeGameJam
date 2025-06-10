@@ -12,7 +12,7 @@ public class HexTile : MonoBehaviour
             return;
         }
 
-        Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.identity);
+        Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0,180,0));
         isOccupied = true;
     }
 }
