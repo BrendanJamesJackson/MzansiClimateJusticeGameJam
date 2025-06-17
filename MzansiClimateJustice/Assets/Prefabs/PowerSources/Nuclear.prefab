@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 6856410029155166246}
   - component: {fileID: 4258815089588288281}
   m_Layer: 0
-  m_Name: nuclear
+  m_Name: Nuclear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4883,7 +4883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158d3bb65df28f047a8e7d656396cd2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationType: 0
+  stationType: 3
   co2Amount: 0
   energyAmount: 0
   cost: 0

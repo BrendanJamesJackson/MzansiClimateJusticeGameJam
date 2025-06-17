@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOccupied: 0
+  isWater: 1
   buildingAnchorLocation: {fileID: 9072726709480616384}
 --- !u!65 &4707543536096006969
 BoxCollider:
