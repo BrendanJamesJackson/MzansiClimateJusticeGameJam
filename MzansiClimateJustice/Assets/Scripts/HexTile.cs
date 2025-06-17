@@ -12,7 +12,8 @@ public class HexTile : MonoBehaviour
             return;
         }
 
-        Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0,180,0));
+        GameObject temp = Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0,180,0));
+        temp.GetComponent<PowerStation>().Build();
         isOccupied = true;
     }
 }
