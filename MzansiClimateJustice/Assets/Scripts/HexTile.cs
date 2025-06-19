@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class HexTile : MonoBehaviour
 {
+    public bool isBuildable = false;
     public bool isOccupied = false;
     public bool isWater = false;
     public Transform buildingAnchorLocation;
+    public Province province;
+
+    private void Awake()
+    {
+        province = GetComponentInParent<Province>();
+    }
 
     public void PlaceBuilding(GameObject buildingPrefab)
     {
@@ -18,8 +25,28 @@ public class HexTile : MonoBehaviour
             return;
         }
 
-        GameObject temp = Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0,180,0));
-        temp.GetComponent<PowerStation>().Build();
-        isOccupied = true;
+        Scenario tempScenario = province.CheckScenarioAvailable(buildingPrefab.GetComponent<PowerStation>().stationType);
+        if (tempScenario == null)
+        {
+            GameObject temp = Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0,180,0));
+            temp.GetComponent<PowerStation>().Build();
+            isOccupied = true;
+        }
+        else if (tempScenario.action == Scenario.Action.Build)
+        {
+            PresentScenario(tempScenario, buildingPrefab, province);
+        }
+
+        
+    }
+
+    public void PresentScenario(Scenario scenario, GameObject buildingPrefab, Province province)
+    {
+        
+        ScenarioUIHandler.Instance.ShowScenario(scenario, province, () => {
+            GameObject temp = Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0, 180, 0));
+            temp.GetComponent<PowerStation>().Build();
+            isOccupied = true;
+        });
     }
 }

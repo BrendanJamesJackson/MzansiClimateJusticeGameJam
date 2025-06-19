@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954a43062c329f74fa7e59993f3cc315, type: 3}
+  m_Name: MP1
+  m_EditorClassIdentifier: 
+  ProvinceName: 1
+  triggerType1: 0
+  triggerType2: 4
+  action: 1
+  scenario: "The nation\u2019s largest coal plant sits in Mpumalanga. Closing it
+    could meet climate target but what about jobs?"
+  character: Kabelo, Miner, 40
+  characterDialogue: "\u201CIf this coal plant closes, we lose work. Solar is the
+    future but we work to feed our families, don\u2019t promise us jobs only for
+    us to starve\u201D"
+  popSatImpact: 0
+  footPrintImpact: 0

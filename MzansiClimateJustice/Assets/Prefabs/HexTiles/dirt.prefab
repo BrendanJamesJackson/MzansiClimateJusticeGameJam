@@ -96,6 +96,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9f6c03bed4f0b641825c8b335465518, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6184996594382491927}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9f6c03bed4f0b641825c8b335465518, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -975349843949149914}
   m_SourcePrefab: {fileID: 100100000, guid: b9f6c03bed4f0b641825c8b335465518, type: 3}
 --- !u!1 &6331920184687744354 stripped
 GameObject:
@@ -135,8 +138,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2367fa335cb7d354d96320d29738c756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBuildable: 1
   isOccupied: 0
+  isWater: 0
   buildingAnchorLocation: {fileID: 3452295145846823719}
+--- !u!114 &-975349843949149914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331920184687744354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74b1414f87313e49b7b4eeffaac18ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  selected: {fileID: 2100000, guid: beee031ee34a8d64a84c55a9f70e6129, type: 2}
 --- !u!4 &6671149846579122136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b9f6c03bed4f0b641825c8b335465518, type: 3}

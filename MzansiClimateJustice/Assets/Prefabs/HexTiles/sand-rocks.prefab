@@ -100,6 +100,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff39fe6cf159853409940ead24826ea5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8901099835062882495}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff39fe6cf159853409940ead24826ea5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7701764465971873750}
   m_SourcePrefab: {fileID: 100100000, guid: ff39fe6cf159853409940ead24826ea5, type: 3}
 --- !u!4 &1723355649952679963 stripped
 Transform:
@@ -123,7 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2367fa335cb7d354d96320d29738c756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBuildable: 1
   isOccupied: 0
+  isWater: 0
   buildingAnchorLocation: {fileID: 4330459305318333727}
 --- !u!65 &8901099835062882495
 BoxCollider:
@@ -146,3 +151,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.2435, z: 1.1547005}
   m_Center: {x: 0, y: 0.12175, z: 0}
+--- !u!114 &-7701764465971873750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063007592563069601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74b1414f87313e49b7b4eeffaac18ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  selected: {fileID: 2100000, guid: beee031ee34a8d64a84c55a9f70e6129, type: 2}

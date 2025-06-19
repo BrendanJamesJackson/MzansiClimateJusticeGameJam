@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954a43062c329f74fa7e59993f3cc315, type: 3}
+  m_Name: KZ1
+  m_EditorClassIdentifier: 
+  ProvinceName: 2
+  triggerType1: 3
+  triggerType2: 4
+  action: 0
+  scenario: Floods threaten livelihoods. Foreign investors propose a nuclear plant,
+    but rural communities advocate for solar cooperatives
+  character: Ma Mnisi, Leader; Abafazi organisation, 48
+  characterDialogue: "\u201C Strangers have ruined this province once before, we
+    want women to be involved and we want roofs with solar panels\u201D"
+  popSatImpact: 0
+  footPrintImpact: 0

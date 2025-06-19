@@ -7,7 +7,8 @@ public class PowerStation : MonoBehaviour
         Coal,
         Solar,
         Wind,
-        Nuclear
+        Nuclear,
+        None
     }
 
     public PowerType stationType;

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954a43062c329f74fa7e59993f3cc315, type: 3}
+  m_Name: MP2
+  m_EditorClassIdentifier: 
+  ProvinceName: 1
+  triggerType1: 0
+  triggerType2: 4
+  action: 0
+  scenario: Massive coal plants exist in the province and supply the country with
+    electricity. Building more coal stations means more energy for all.
+  character: Thato, 22
+  characterDialogue: "\u201C I suffer from bronchitis I fear for my health, my young
+    child has asthma, we cannot afford to move to another place should a new station
+    be built\u201D"
+  popSatImpact: 0
+  footPrintImpact: 0

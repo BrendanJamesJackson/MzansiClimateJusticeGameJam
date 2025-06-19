@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954a43062c329f74fa7e59993f3cc315, type: 3}
+  m_Name: WC1
+  m_EditorClassIdentifier: 
+  ProvinceName: 3
+  triggerType1: 1
+  triggerType2: 4
+  action: 0
+  scenario: A large solar project threatens rare fynbos ecosystems critical for biodiversity
+    and water availability in rivers and reservoirs.
+  character: King Protea, national flower
+  characterDialogue: "\u201CI\u2019m unique to this land and have been living here
+    for almost 5 million years, this is my home!\u201D"
+  popSatImpact: 0
+  footPrintImpact: 0

@@ -3,7 +3,20 @@ using System.Collections.Generic;
 
 public class Province : MonoBehaviour
 {
-    public string nameProvince;
+    public enum ProvinceName
+    {
+        NorthernCape,
+        Mpumalanga,
+        KwaZuluNatal,
+        WesternCape,
+        Gauteng,
+        FreeState,
+        NorthWest,
+        EasternCape,
+        Limpopo
+    }
+
+    public ProvinceName provinceName;
     [SerializeField] private float co2LevelsProvince;
     [SerializeField] private float energyLevelsProvince;
     [SerializeField] private float populationSatisfactionLevelsProvince;
@@ -12,15 +25,51 @@ public class Province : MonoBehaviour
 
     public List<HexTile> tiles;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Scenario[] scenarios;
+    public bool[] scenarioResolved;
+
+    public void Awake()
     {
-        
+        tiles.AddRange(GetComponentsInChildren<HexTile>());
+        /*for (int i = 0; i < scenarios.Length; i++)
+        {
+            scenarioResolved[i] = false;
+        }*/
     }
 
-    // Update is called once per frame
-    void Update()
+    public Scenario CheckScenarioAvailable(PowerStation.PowerType type)
     {
-        
+        for (int i = 0;i < scenarios.Length; i++)
+        {
+            if ((type == scenarios[i].triggerType1 || type == scenarios[i].triggerType2) && scenarioResolved[i] == false && scenarios[i].action == Scenario.Action.Build)
+            {
+                scenarioResolved[i] = true;
+                return scenarios[i];
+            }
+        }
+        return null;
+    }
+
+    
+
+    public void SelectTiles()
+    {
+        foreach (HexTile tile in tiles)
+        {
+            tile.gameObject.GetComponent<SelectTile>().Select();
+        }
+    }
+
+    public void DeSelectTiles()
+    {
+        foreach (HexTile tile in tiles)
+        {
+            tile.gameObject.GetComponent<SelectTile>().DeSelect();
+        }
+    }
+
+    public void ScenarioOutcome(Scenario scenario, bool choseYes)
+    {
+
     }
 }
