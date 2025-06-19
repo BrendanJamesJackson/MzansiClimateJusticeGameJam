@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class Province : MonoBehaviour
 {
+    public GameManager gm;
+
     public enum ProvinceName
     {
         NorthernCape,
@@ -68,8 +70,27 @@ public class Province : MonoBehaviour
         }
     }
 
+    public void BuildProvince(float co2, float energy, float popSat, float gdp, float footprint)
+    {
+        co2LevelsProvince += co2;
+        energyLevelsProvince += energy;
+        populationSatisfactionLevelsProvince += popSat;
+        gdpLevelsProvince += gdp;
+        ecologicalFootprintLevelsProvince += footprint;
+    }
+
     public void ScenarioOutcome(Scenario scenario, bool choseYes)
     {
+        if (choseYes)
+        {
+            populationSatisfactionLevelsProvince -= scenario.popSatImpact;
+            gm.setPopSatLevels(-scenario.popSatImpact);
 
+        }
+        else
+        {
+            populationSatisfactionLevelsProvince += scenario.popSatImpact;
+            gm.setPopSatLevels(scenario.popSatImpact);
+        }
     }
 }

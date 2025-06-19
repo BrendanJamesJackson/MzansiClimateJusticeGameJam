@@ -2323,6 +2323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 8
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -3936,6 +3937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 6
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -5942,6 +5944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 0
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -11073,6 +11076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 2
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -18339,6 +18343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 3
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -20968,6 +20973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 7
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -27174,6 +27180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 1
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -27309,6 +27316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 4
   co2LevelsProvince: 0
   energyLevelsProvince: 0
@@ -36804,6 +36812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1db061fa3f398a49a9c9a7cc22016a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 390477483}
   provinceName: 5
   co2LevelsProvince: 0
   energyLevelsProvince: 0

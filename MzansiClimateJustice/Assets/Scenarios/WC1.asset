@@ -21,5 +21,5 @@ MonoBehaviour:
   character: King Protea, national flower
   characterDialogue: "\u201CI\u2019m unique to this land and have been living here
     for almost 5 million years, this is my home!\u201D"
-  popSatImpact: 0
+  popSatImpact: 20
   footPrintImpact: 0
