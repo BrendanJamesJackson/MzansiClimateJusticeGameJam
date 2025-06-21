@@ -19,11 +19,11 @@ public class Province : MonoBehaviour
     }
 
     public ProvinceName provinceName;
-    [SerializeField] private float co2LevelsProvince;
-    [SerializeField] private float energyLevelsProvince;
-    [SerializeField] private float populationSatisfactionLevelsProvince;
-    [SerializeField] private float gdpLevelsProvince;
-    [SerializeField] private float ecologicalFootprintLevelsProvince;
+    [SerializeField] public float co2LevelsProvince;
+    [SerializeField] public float energyLevelsProvince;
+    [SerializeField] public float populationSatisfactionLevelsProvince;
+    [SerializeField] public float gdpLevelsProvince;
+    [SerializeField] public float ecologicalFootprintLevelsProvince;
 
     public List<HexTile> tiles;
 

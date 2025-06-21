@@ -30,6 +30,8 @@ public class HexTile : MonoBehaviour
         {
             GameObject temp = Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0,180,0));
             temp.GetComponent<PowerStation>().Build();
+            PowerStation tempStation = temp.GetComponent<PowerStation>();
+            province.BuildProvince(tempStation.co2Amount,tempStation.energyAmount,tempStation.satisfactionImpact,tempStation.cost,tempStation.footprintAmount);
             isOccupied = true;
         }
         else if (tempScenario.action == Scenario.Action.Build)
@@ -46,6 +48,8 @@ public class HexTile : MonoBehaviour
         ScenarioUIHandler.Instance.ShowScenario(scenario, province, () => {
             GameObject temp = Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0, 180, 0));
             temp.GetComponent<PowerStation>().Build();
+            PowerStation tempStation = temp.GetComponent<PowerStation>();
+            province.BuildProvince(tempStation.co2Amount, tempStation.energyAmount, tempStation.satisfactionImpact, tempStation.cost, tempStation.footprintAmount);
             isOccupied = true;
         });
     }

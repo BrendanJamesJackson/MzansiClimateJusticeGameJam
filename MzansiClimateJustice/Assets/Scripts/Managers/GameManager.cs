@@ -1,9 +1,10 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float co2Levels;
+    public const float Maxco2 = 200;
     [SerializeField] private float energyLevels;
     [SerializeField] private float populationSatisfactionLevels;
     [SerializeField] private float gdpLevels;
@@ -15,9 +16,24 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gdpTag;
     public TextMeshProUGUI footTag;
 
+    public ParticleSystem fog;
+
     private void Awake()
     {
         InitialSet();
+    }
+
+    public void Update()
+    {
+        var fogMain = fog.main;
+
+        // Safely get and modify the color if it's in Color mode
+        if (fogMain.startColor.mode == ParticleSystemGradientMode.Color)
+        {
+            Color baseColor = fogMain.startColor.color;
+            baseColor.a = Mathf.Clamp01(co2Levels / Maxco2); // Clamp to avoid over/under values
+            fogMain.startColor = new ParticleSystem.MinMaxGradient(baseColor);
+        }
     }
 
     public void InitialSet()
