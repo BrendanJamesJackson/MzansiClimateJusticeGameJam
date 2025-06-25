@@ -33,10 +33,7 @@ public class Province : MonoBehaviour
     public void Awake()
     {
         tiles.AddRange(GetComponentsInChildren<HexTile>());
-        /*for (int i = 0; i < scenarios.Length; i++)
-        {
-            scenarioResolved[i] = false;
-        }*/
+    
     }
 
     public Scenario CheckScenarioAvailable(PowerStation.PowerType type)
@@ -77,6 +74,15 @@ public class Province : MonoBehaviour
         populationSatisfactionLevelsProvince += popSat;
         gdpLevelsProvince += gdp;
         ecologicalFootprintLevelsProvince += footprint;
+    }
+
+    public void RemoveProvince(float co2, float energy, float popSat, float gdp, float footprint)
+    {
+        co2LevelsProvince -= co2;
+        energyLevelsProvince -= energy;
+        populationSatisfactionLevelsProvince -= popSat/2;
+        gdpLevelsProvince -= gdp/2;
+        ecologicalFootprintLevelsProvince -= footprint/2;
     }
 
     public void ScenarioOutcome(Scenario scenario, bool choseYes)

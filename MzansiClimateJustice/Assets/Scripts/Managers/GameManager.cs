@@ -1,13 +1,16 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float co2Levels;
-    public const float Maxco2 = 200;
+    public const float Maxco2 = 900;
     [SerializeField] private float energyLevels;
     [SerializeField] private float populationSatisfactionLevels;
-    [SerializeField] private float gdpLevels;
+    [SerializeField] private float gdpLevels = 325;
     [SerializeField] private float ecologicalFootprintLevels;
 
     public TextMeshProUGUI co2Tag;
@@ -18,9 +21,31 @@ public class GameManager : MonoBehaviour
 
     public ParticleSystem fog;
 
+    public List<HexTile> tiles;
+    public GameObject coalPrefab;
+
+
+    public float gdpGrowthRate = 2.0f; // GDP per in-game month
+     // since 1 month = 20 real seconds
+
     private void Awake()
     {
+        tiles.AddRange(FindObjectsByType<HexTile>(FindObjectsSortMode.None));
+
+        SetupRandomCoal();
+
         InitialSet();
+    }
+
+    void SetupRandomCoal()
+    {
+        List<HexTile> buildableTiles = tiles.Where(tile => tile.isBuildable).ToList();
+        List<HexTile> selectedTiles = buildableTiles.OrderBy(t => Random.value).Take(15).ToList();
+
+        foreach (HexTile tile in selectedTiles)
+        {
+            tile.SetupPlaceCoal(coalPrefab);
+        }
     }
 
     public void Update()
@@ -34,6 +59,11 @@ public class GameManager : MonoBehaviour
             baseColor.a = Mathf.Clamp01(co2Levels / Maxco2); // Clamp to avoid over/under values
             fogMain.startColor = new ParticleSystem.MinMaxGradient(baseColor);
         }
+
+        float gdpPerSecond = gdpGrowthRate / 20f;
+        gdpLevels += gdpPerSecond * Time.deltaTime;
+        gdpTag.text = $"GDP: {gdpLevels}";
+
     }
 
     public void InitialSet()

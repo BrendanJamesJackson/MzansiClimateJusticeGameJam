@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5022403127709410793}
   - component: {fileID: -7758103019060339966}
+  - component: {fileID: 1862668989372375731}
   m_Layer: 0
   m_Name: coal
   m_TagString: Untagged
@@ -46,11 +47,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationType: 0
-  co2Amount: 0
-  energyAmount: 0
-  cost: 0
-  satisfactionImpact: 0
-  footprintAmount: 0
+  co2Amount: 40
+  energyAmount: 30
+  cost: -15
+  satisfactionImpact: -10
+  footprintAmount: 30
+--- !u!65 &1862668989372375731
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270615196873413888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.48186514, y: 0.48679972, z: 0.38317284}
+  m_Center: {x: 0.0024673194, y: 0.25660014, z: -0.04194431}
 --- !u!1 &6360531701930881471
 GameObject:
   m_ObjectHideFlags: 0

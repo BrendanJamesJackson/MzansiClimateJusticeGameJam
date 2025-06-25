@@ -35,9 +35,24 @@ public class PowerStation : MonoBehaviour
         gm.setEcoFootprintLevels(footprintAmount);
     }
 
-    public void Decommission()
+    private void OnMouseDown()
+    {
+        BuildingRemovalManager.Instance.RequestRemoval(this);
+    }
+
+    public void RemoveBuilding()
     {
 
+        gm.setCO2(-co2Amount);
+        gm.setEnergy(-energyAmount);
+        gm.setGDPLevels(-cost/2);
+        gm.setPopSatLevels(-satisfactionImpact/2);
+        gm.setEcoFootprintLevels(-footprintAmount/2);
+
+        Province prov = GetComponentInParent<Province>();
+        prov.RemoveProvince(co2Amount,energyAmount,satisfactionImpact,cost,footprintAmount);
+
+        Destroy(gameObject);
     }
 
 }

@@ -32,6 +32,7 @@ public class HexTile : MonoBehaviour
             temp.GetComponent<PowerStation>().Build();
             PowerStation tempStation = temp.GetComponent<PowerStation>();
             province.BuildProvince(tempStation.co2Amount,tempStation.energyAmount,tempStation.satisfactionImpact,tempStation.cost,tempStation.footprintAmount);
+            temp.transform.SetParent(province.transform);
             isOccupied = true;
         }
         else if (tempScenario.action == Scenario.Action.Build)
@@ -42,6 +43,16 @@ public class HexTile : MonoBehaviour
         
     }
 
+    public void SetupPlaceCoal(GameObject buildingPrefab)
+    {
+        GameObject temp = Instantiate(buildingPrefab, buildingAnchorLocation.position, Quaternion.Euler(0, 180, 0));
+        temp.GetComponent<PowerStation>().Build();
+        PowerStation tempStation = temp.GetComponent<PowerStation>();
+        province.BuildProvince(tempStation.co2Amount, tempStation.energyAmount, tempStation.satisfactionImpact, tempStation.cost, tempStation.footprintAmount);
+        temp.transform.SetParent(province.transform);
+        isOccupied = true;
+    }
+
     public void PresentScenario(Scenario scenario, GameObject buildingPrefab, Province province)
     {
         
@@ -50,6 +61,7 @@ public class HexTile : MonoBehaviour
             temp.GetComponent<PowerStation>().Build();
             PowerStation tempStation = temp.GetComponent<PowerStation>();
             province.BuildProvince(tempStation.co2Amount, tempStation.energyAmount, tempStation.satisfactionImpact, tempStation.cost, tempStation.footprintAmount);
+            temp.transform.SetParent(province.transform);
             isOccupied = true;
         });
     }

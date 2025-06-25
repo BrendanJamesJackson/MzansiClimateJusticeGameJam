@@ -4843,6 +4843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6856410029155166246}
   - component: {fileID: 4258815089588288281}
+  - component: {fileID: 4544611979756149553}
   m_Layer: 0
   m_Name: Nuclear
   m_TagString: Untagged
@@ -4885,10 +4886,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stationType: 3
   co2Amount: 0
-  energyAmount: 0
-  cost: 0
-  satisfactionImpact: 0
-  footprintAmount: 0
+  energyAmount: 40
+  cost: -40
+  satisfactionImpact: -5
+  footprintAmount: 10
+--- !u!65 &4544611979756149553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225952011253113595}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.46406016, y: 0.19913515, z: 0.4792857}
+  m_Center: {x: -0.006090209, y: 0.111146644, z: 0.004567638}
 --- !u!1 &2481750556595902518
 GameObject:
   m_ObjectHideFlags: 0
