@@ -15,6 +15,8 @@ public class TimeManager : MonoBehaviour
 
     public TextMeshProUGUI dateText;
 
+    public GameManager gameManager;
+
     void Start()
     {
         currentDate = startDate;
@@ -23,7 +25,12 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        if (currentDate >= endDate) return;
+        if (currentDate >= endDate)
+        {
+            gameManager.EndGame();
+            return;
+        }
+        
 
         elapsedRealTime += Time.deltaTime;
 

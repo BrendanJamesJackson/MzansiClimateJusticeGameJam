@@ -13,6 +13,8 @@ public class UIDraggableBuilding : MonoBehaviour, IBeginDragHandler, IDragHandle
     public GameObject infoPanel;
     public TextMeshProUGUI[] text;
 
+    private SelectTile lastSelected = null;
+
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -50,6 +52,45 @@ public class UIDraggableBuilding : MonoBehaviour, IBeginDragHandler, IDragHandle
             rt.sizeDelta = new Vector2(128, 128);
             rt.position = Input.mousePosition;
         }
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            HexTile tile = hit.collider.GetComponent<HexTile>();
+            SelectTile currentTile = hit.collider.GetComponent<SelectTile>();
+
+
+            if (tile != null && !tile.isOccupied && tile.isBuildable)
+            {
+                if (lastSelected != null && lastSelected != currentTile)
+                {
+                    lastSelected.DeSelect();
+                }
+                
+                if (currentTile != null && lastSelected != currentTile)
+                {
+                    currentTile.Select();
+                    lastSelected = currentTile;
+                }
+                    
+            }
+            else
+            {
+                if (lastSelected != null)
+                {
+                    lastSelected.DeSelect();
+                    lastSelected = null;
+                }
+            }
+        }
+        else
+        {
+            if (lastSelected != null)
+            {
+                lastSelected.DeSelect();
+                lastSelected = null;
+            }
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -68,8 +109,16 @@ public class UIDraggableBuilding : MonoBehaviour, IBeginDragHandler, IDragHandle
                 if (tile != null && !tile.isOccupied)
                 {
                     tile.PlaceBuilding(buildingPrefab);
+                    hit.collider.GetComponent <SelectTile>().DeSelect();
                 }
             }
         }
+
+        if (lastSelected != null)
+        {
+            lastSelected.DeSelect();
+            lastSelected = null;
+        }
+
     }
 }

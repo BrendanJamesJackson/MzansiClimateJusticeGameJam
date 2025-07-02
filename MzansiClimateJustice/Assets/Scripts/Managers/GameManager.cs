@@ -37,10 +37,28 @@ public class GameManager : MonoBehaviour
         InitialSet();
     }
 
+    /*void SetupRandomCoal()
+    {
+        List<HexTile> buildableTiles = tiles.Where(tile => tile.isBuildable).ToList();
+        List<HexTile> nonWaterTile = buildableTiles.Where(tile => !tile.isWater).ToList();
+        List<HexTile> selectedTiles = nonWaterTile.OrderBy(t => Random.value).Take(15).ToList();
+
+        foreach (HexTile tile in selectedTiles)
+        {
+            tile.SetupPlaceCoal(coalPrefab);
+        }
+    }*/
+
     void SetupRandomCoal()
     {
         List<HexTile> buildableTiles = tiles.Where(tile => tile.isBuildable).ToList();
-        List<HexTile> selectedTiles = buildableTiles.OrderBy(t => Random.value).Take(15).ToList();
+        List<HexTile> nonWaterTile = buildableTiles.Where(tile => !tile.isWater).ToList();
+
+        // SHUFFLE THE LIST
+        Shuffle(nonWaterTile);
+
+        int count = Mathf.Min(15, nonWaterTile.Count);
+        List<HexTile> selectedTiles = nonWaterTile.Take(count).ToList();
 
         foreach (HexTile tile in selectedTiles)
         {
@@ -48,6 +66,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Shuffle<T>(List<T> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            int randIndex = Random.Range(i, list.Count);
+            T temp = list[i];
+            list[i] = list[randIndex];
+            list[randIndex] = temp;
+        }
+    }
+
+
+    public void EndGame()
+    {
+        PlayerPrefs.SetFloat("CO2", co2Levels);
+        PlayerPrefs.SetFloat("Energy", energyLevels);
+        PlayerPrefs.SetFloat("PopSat", populationSatisfactionLevels);
+        PlayerPrefs.SetFloat("GDP", gdpLevels);
+        PlayerPrefs.SetFloat("Footprint", ecologicalFootprintLevels);
+    }
     public void Update()
     {
         var fogMain = fog.main;
