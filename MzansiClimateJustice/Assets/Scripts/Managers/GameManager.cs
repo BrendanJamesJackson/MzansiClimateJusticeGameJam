@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI popTag;
     public TextMeshProUGUI gdpTag;
     public TextMeshProUGUI footTag;
+
+    public Slider co2Slider;
 
     public ParticleSystem fog;
 
@@ -100,24 +103,27 @@ public class GameManager : MonoBehaviour
 
         float gdpPerSecond = gdpGrowthRate / 20f;
         gdpLevels += gdpPerSecond * Time.deltaTime;
-        gdpTag.text = $"GDP: {gdpLevels}";
+        gdpTag.text = $"{Mathf.FloorToInt(gdpLevels)}";
+
+        //gdpTag.text = $"{gdpLevels}";
 
     }
 
     public void InitialSet()
     {
-        co2Tag.text = $"CO2 Levels: {co2Levels}";
-        energyTag.text = $"Energy Levels: {energyLevels}";
-        popTag.text = $"Population Satisfaction Levels: {populationSatisfactionLevels}";
-        gdpTag.text = $"GDP: {gdpLevels}";
-        footTag.text = $"Ecological Footprint: {ecologicalFootprintLevels}";
+        co2Tag.text = $"{co2Levels}";
+        energyTag.text = $"{energyLevels}";
+        popTag.text = $"{populationSatisfactionLevels}";
+        gdpTag.text = $"{gdpLevels}";
+        footTag.text = $"{ecologicalFootprintLevels}";
 
     }
 
     public void setCO2(float amount)
     {
         co2Levels += amount;
-        co2Tag.text = $"CO2 Levels: {co2Levels}";
+        co2Tag.text = $"{co2Levels}";
+        co2Slider.value = co2Levels / Maxco2;
     }
 
     public float getCO2()
@@ -128,7 +134,7 @@ public class GameManager : MonoBehaviour
     public void setEnergy(float amount)
     {
         energyLevels += amount;
-        energyTag.text = $"Energy Levels: {energyLevels}";
+        energyTag.text = $"{energyLevels}";
     }
 
     public float getEnergy()
@@ -139,7 +145,7 @@ public class GameManager : MonoBehaviour
     public void setPopSatLevels(float amount)
     {
         populationSatisfactionLevels += amount;
-        popTag.text = $"Population Satisfaction Levels: {populationSatisfactionLevels}";
+        popTag.text = $"{populationSatisfactionLevels}";
     }
 
     public float getPopSatLevels()
@@ -150,7 +156,7 @@ public class GameManager : MonoBehaviour
     public void setGDPLevels(float amount)
     {
         gdpLevels += amount;
-        gdpTag.text = $"GDP: {gdpLevels}";
+        gdpTag.text = $"{gdpLevels}";
     }
 
     public float getGDPLevels()
@@ -161,7 +167,7 @@ public class GameManager : MonoBehaviour
     public void setEcoFootprintLevels(float amount)
     {
         ecologicalFootprintLevels += amount;
-        footTag.text = $"Ecological Footprint: {ecologicalFootprintLevels}";
+        footTag.text = $"{ecologicalFootprintLevels}";
     }
 
     public float getEcoFootprintLevels()
