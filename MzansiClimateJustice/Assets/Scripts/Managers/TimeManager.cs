@@ -5,6 +5,7 @@ using TMPro;
 public class TimeManager : MonoBehaviour
 {
     public string currentDateString; // Publicly accessible for UI or debugging
+    public string timeLeftString;
 
     private DateTime startDate = new DateTime(2026, 1, 1);
     private DateTime endDate = new DateTime(2030, 12, 31);
@@ -14,6 +15,7 @@ public class TimeManager : MonoBehaviour
     private float elapsedRealTime = 0f;
 
     public TextMeshProUGUI dateText;
+    public TextMeshProUGUI timeLeftText;
 
     public GameManager gameManager;
 
@@ -21,6 +23,7 @@ public class TimeManager : MonoBehaviour
     {
         currentDate = startDate;
         UpdateDateString();
+        UpdateTimeLeftString();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class TimeManager : MonoBehaviour
 
         currentDate = startDate.AddDays(daysPassed);
         UpdateDateString();
+        UpdateTimeLeftString();
     }
 
     void UpdateDateString()
@@ -47,4 +51,18 @@ public class TimeManager : MonoBehaviour
         currentDateString = currentDate.ToString("MMMM yyyy"); // e.g., "March 2028"
         dateText.text = currentDateString;
     }
+
+    void UpdateTimeLeftString()
+    {
+        float timeLeft = Mathf.Max(0, totalRealTime - elapsedRealTime);
+        int minutes = Mathf.FloorToInt(timeLeft / 60f);
+        int seconds = Mathf.FloorToInt(timeLeft % 60f);
+
+        timeLeftString = $"{minutes:D2}:{seconds:D2}"; // e.g., "13:45"
+        if (timeLeftText != null)
+        {
+            timeLeftText.text = timeLeftString;
+        }
+    }
+
 }

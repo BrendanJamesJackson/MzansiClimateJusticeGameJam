@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec39c7a9f690b54e8a32f8653c153d5, type: 3}
+  m_Name: Energy
+  m_EditorClassIdentifier: 
+  Good: 'Amazing! You were able to provide power to the people. Renewable energy
+    for all! You created a new South Africa.  '
+  Average: "There is room for improvement\u2026 There are parts of the country with
+    no energy. You should do better Director!  "
+  Bad: 'You are in trouble! You were not able to provide energy for all. You disappointed
+    your country.  '

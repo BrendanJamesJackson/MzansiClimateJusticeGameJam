@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec39c7a9f690b54e8a32f8653c153d5, type: 3}
+  m_Name: GDP
+  m_EditorClassIdentifier: 
+  Good: "Wow! The country\u2019s economy has grown and the GDP has risen. You, my
+    friend, did a great job!  "
+  Average: "Oh\u2026The economy hasn\u2019t seen any changes. The GDP remains the
+    same. You could have done better, Director!  "
+  Bad: 'The economy has plummeted. The GDP is lower. You have been labeled the worst
+    director in history.  '

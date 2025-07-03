@@ -18,6 +18,9 @@ public class Province : MonoBehaviour
         Limpopo
     }
 
+    public AudioSource audioBuild;
+    public AudioSource audioRemove;
+
     public ProvinceName provinceName;
     [SerializeField] public float co2LevelsProvince;
     [SerializeField] public float energyLevelsProvince;
@@ -74,6 +77,7 @@ public class Province : MonoBehaviour
         populationSatisfactionLevelsProvince += popSat;
         gdpLevelsProvince += gdp;
         ecologicalFootprintLevelsProvince += footprint;
+        audioBuild.Play();
     }
 
     public void RemoveProvince(float co2, float energy, float popSat, float gdp, float footprint)
@@ -83,6 +87,7 @@ public class Province : MonoBehaviour
         populationSatisfactionLevelsProvince -= popSat/2;
         gdpLevelsProvince -= gdp/2;
         ecologicalFootprintLevelsProvince -= footprint/2;
+        audioRemove.Play();
     }
 
     public void ScenarioOutcome(Scenario scenario, bool choseYes)

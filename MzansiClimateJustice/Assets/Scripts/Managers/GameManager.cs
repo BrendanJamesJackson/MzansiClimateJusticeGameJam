@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI footTag;
 
     public Slider co2Slider;
+    public Slider energySlider;
+    public Slider populationSlider;
+    public Slider gdpSlider;
+    public Slider ecoSlider;
+
 
     public ParticleSystem fog;
 
@@ -33,11 +39,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        tiles.AddRange(FindObjectsByType<HexTile>(FindObjectsSortMode.None));
+        /*tiles.AddRange(FindObjectsByType<HexTile>(FindObjectsSortMode.None));
 
         SetupRandomCoal();
 
-        InitialSet();
+        InitialSet();*/
     }
 
     /*void SetupRandomCoal()
@@ -88,9 +94,31 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("PopSat", populationSatisfactionLevels);
         PlayerPrefs.SetFloat("GDP", gdpLevels);
         PlayerPrefs.SetFloat("Footprint", ecologicalFootprintLevels);
+        SceneManager.LoadScene(3);
     }
+
+    public void Start()
+    {
+        Debug.Log("gdpGrowthRate = " + gdpGrowthRate);
+
+        tiles.AddRange(FindObjectsByType<HexTile>(FindObjectsSortMode.None));
+
+        SetupRandomCoal();
+
+        InitialSet();
+
+    }
+
     public void Update()
     {
+        Debug.Log("Update is running");
+
+        if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            EndGame();
+        }
+
+
         var fogMain = fog.main;
 
         // Safely get and modify the color if it's in Color mode
@@ -103,7 +131,8 @@ public class GameManager : MonoBehaviour
 
         float gdpPerSecond = gdpGrowthRate / 20f;
         gdpLevels += gdpPerSecond * Time.deltaTime;
-        gdpTag.text = $"{Mathf.FloorToInt(gdpLevels)}";
+        gdpTag.text = $"{gdpLevels:F1}";
+        //gdpTag.text = $"{Mathf.FloorToInt(gdpLevels)}";
 
         //gdpTag.text = $"{gdpLevels}";
 
@@ -135,6 +164,7 @@ public class GameManager : MonoBehaviour
     {
         energyLevels += amount;
         energyTag.text = $"{energyLevels}";
+        energySlider.value = energyLevels / 280;
     }
 
     public float getEnergy()
@@ -146,6 +176,7 @@ public class GameManager : MonoBehaviour
     {
         populationSatisfactionLevels += amount;
         popTag.text = $"{populationSatisfactionLevels}";
+        populationSlider.value = populationSatisfactionLevels / 70;
     }
 
     public float getPopSatLevels()
@@ -157,6 +188,7 @@ public class GameManager : MonoBehaviour
     {
         gdpLevels += amount;
         gdpTag.text = $"{gdpLevels}";
+        gdpSlider.value = gdpLevels / 130;
     }
 
     public float getGDPLevels()
@@ -168,6 +200,7 @@ public class GameManager : MonoBehaviour
     {
         ecologicalFootprintLevels += amount;
         footTag.text = $"{ecologicalFootprintLevels}";
+        ecoSlider.value = ecologicalFootprintLevels / 70; 
     }
 
     public float getEcoFootprintLevels()

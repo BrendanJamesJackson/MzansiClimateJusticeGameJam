@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndGameManager : MonoBehaviour
 {
@@ -14,6 +16,12 @@ public class EndGameManager : MonoBehaviour
     public Outcomes EcologicalFootprintOutcome;
     public Outcomes PopSatOutcome;
 
+    public TextMeshProUGUI co2Text;
+    public TextMeshProUGUI energyText;
+    public TextMeshProUGUI populationText;
+    public TextMeshProUGUI gdpText;
+    public TextMeshProUGUI footprintText;
+
     private void Awake()
     {
         co2Levels = PlayerPrefs.GetFloat("CO2");
@@ -21,22 +29,82 @@ public class EndGameManager : MonoBehaviour
         populationSatisfactionLevels = PlayerPrefs.GetFloat("PopSat");
         gdpLevels = PlayerPrefs.GetFloat("GDP");
         ecologicalFootprintLevels = PlayerPrefs.GetFloat("Footprint");
+
+        SetOutcomes();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void MainMenu()
     {
-        
+        SceneManager.LoadScene(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetOutcomes()
     {
+        if (co2Levels <= 40)
+        {
+            co2Text.text = CO2Outcome.Good;
+        }
+        else if (co2Levels > 40 && co2Levels <= 120)
+        {
+            co2Text.text = CO2Outcome.Average;
+        }
+        else
+        {
+            co2Text.text = CO2Outcome.Bad;
+        }
+
+        if (energyLevels < 150)
+        {
+            energyText.text = EnergyOutcome.Bad;
+        }
+        else if (energyLevels >= 150 && energyLevels > 250)
+        {
+            energyText.text= EnergyOutcome.Average;
+        }
+        else
+        {
+            energyText.text = EnergyOutcome.Good;
+        }
+
+        if (populationSatisfactionLevels < 0)
+        {
+            populationText.text = PopSatOutcome.Bad;
+        }
+        else if (populationSatisfactionLevels >=0 && populationSatisfactionLevels < 50)
+        {
+            populationText.text = PopSatOutcome.Average;
+        }
+        else
+        {
+            populationText.text = PopSatOutcome.Good;
+        }
+
+        if (gdpLevels < 0)
+        {
+            gdpText.text = GdpOutcome.Bad;
+        }
+        else if (gdpLevels >=0 && gdpLevels < 100)
+        {
+            gdpText.text = GdpOutcome.Average;
+        }
+        else
+        {
+            gdpText.text = GdpOutcome.Good;
+        }
+
+        if (ecologicalFootprintLevels <= 20)
+        {
+            footprintText.text = EcologicalFootprintOutcome.Good;
+        }
+        else if (ecologicalFootprintLevels > 20 && ecologicalFootprintLevels < 85)
+        {
+            footprintText.text= EcologicalFootprintOutcome.Average;
+        }
+        else
+        {
+            footprintText.text = EcologicalFootprintOutcome.Bad;
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ProvinceButton : MonoBehaviour
 {
@@ -15,29 +16,44 @@ public class ProvinceButton : MonoBehaviour
 
     public bool isShowing = false;
 
+    public Image Card;
+
+    public Sprite CardSprite;
+
+    public DeselectProvince Deselect;
+
+    public GameObject provinceInfo;
+
     public void ShowPanel()
     {
         if (!isShowing)
         {
             UpdateData();
             provincePanel.SetActive(true);
+            provinceInfo.SetActive(true);
             isShowing = true;
             province.SelectTiles();
         }
         else if (isShowing)
         {
             provincePanel.SetActive(false);
+            provinceInfo.SetActive(false);
             isShowing = false;
             province.DeSelectTiles();
         }
+        
+        Deselect.province = province;
     }
+
+    
 
     public void UpdateData()
     {
-        textCO2.text = $"CO2 Levels: {province.co2LevelsProvince}";
-        textEnergy.text = $"Energy Levels: {province.energyLevelsProvince}";
-        textPopSat.text = $"Population Satisfaction: {province.populationSatisfactionLevelsProvince}";
-        textGDP.text = $"GDP: {province.gdpLevelsProvince}";
-        textFootprint.text = $"Ecological Footprint: {province.ecologicalFootprintLevelsProvince}";
+        textCO2.text = $"{province.co2LevelsProvince}";
+        textEnergy.text = $"{province.energyLevelsProvince}";
+        textPopSat.text = $"{province.populationSatisfactionLevelsProvince}";
+        textGDP.text = $"{province.gdpLevelsProvince}";
+        textFootprint.text = $"{province.ecologicalFootprintLevelsProvince}";
+        Card.sprite = CardSprite;
     }
 }

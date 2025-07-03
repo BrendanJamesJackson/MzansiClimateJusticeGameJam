@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/InfoScene.unity
     guid: 7f5886b8ce1a4b541af3bed6c6720edd
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/GameSceneFinal.unity
+    guid: 174546a6f4a804841acd1e37456b318c
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: b8675571090f7224ebe64ea32b38c5f0
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: 70b32ad5ae4f05447b344f02aa895ec8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

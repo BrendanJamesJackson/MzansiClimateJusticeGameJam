@@ -23,11 +23,11 @@ public class UIDraggableBuilding : MonoBehaviour, IBeginDragHandler, IDragHandle
     public void ShowInfo()
     {
         infoPanel.SetActive(!infoPanel.activeSelf);
-        text[0].text = $"CO2 Levels: {buildingPrefab.GetComponent<PowerStation>().co2Amount}";
-        text[1].text = $"Energy Levels: {buildingPrefab.GetComponent<PowerStation>().energyAmount}";
-        text[2].text = $"Cost: {buildingPrefab.GetComponent<PowerStation>().cost}";
-        text[3].text = $"Population Satisfaction Impact: {buildingPrefab.GetComponent<PowerStation>().satisfactionImpact}";
-        text[4].text = $"Ecological Footprint Impact: {buildingPrefab.GetComponent<PowerStation>().footprintAmount}";
+        text[0].text = $"{buildingPrefab.GetComponent<PowerStation>().co2Amount}";
+        text[1].text = $"{buildingPrefab.GetComponent<PowerStation>().energyAmount}";
+        text[2].text = $"{buildingPrefab.GetComponent<PowerStation>().cost}";
+        text[3].text = $"{buildingPrefab.GetComponent<PowerStation>().satisfactionImpact}";
+        text[4].text = $"{buildingPrefab.GetComponent<PowerStation>().footprintAmount}";
     }
 
     

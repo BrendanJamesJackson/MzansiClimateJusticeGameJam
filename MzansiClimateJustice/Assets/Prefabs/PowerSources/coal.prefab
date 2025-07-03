@@ -50,7 +50,7 @@ MonoBehaviour:
   co2Amount: 40
   energyAmount: 30
   cost: -15
-  satisfactionImpact: -10
+  satisfactionImpact: -5
   footprintAmount: 30
 --- !u!65 &1862668989372375731
 BoxCollider:
