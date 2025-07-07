@@ -4597,7 +4597,7 @@ MonoBehaviour:
   textFootprint: {fileID: 301837940}
   isShowing: 0
   Card: {fileID: 1958127458}
-  CardSprite: {fileID: -826222256, guid: 68c79da2c06b0af4fa2aab907659f4f4, type: 3}
+  CardSprite: {fileID: -490395234, guid: ebbeeb936aa8ab7479ffbdf35246cc46, type: 3}
   Deselect: {fileID: 593944669}
   provinceInfo: {fileID: 41636868}
 --- !u!114 &158928266
@@ -26027,7 +26027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &904511654
 RectTransform:
   m_ObjectHideFlags: 0
